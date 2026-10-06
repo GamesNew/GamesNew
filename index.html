@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="gamesnew_ — achadinhos gamers, tecnologia e ofertas.">
+<title>gamesnew_ | Achadinhos Gamer</title>
+<style>
+:root{
+  --bg:#070a12;--panel:#0e1320;--panel2:#111827;--text:#f5f7ff;
+  --muted:#9aa5bb;--blue:#19b8ff;--purple:#8b5cf6;--line:#202a3c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:
+radial-gradient(circle at 50% -10%,rgba(25,184,255,.18),transparent 32%),
+radial-gradient(circle at 90% 30%,rgba(139,92,246,.12),transparent 28%),var(--bg);
+color:var(--text);min-height:100vh}
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,92%);margin:auto}
+header{text-align:center;padding:42px 0 28px}
+.logo{width:92px;height:92px;border-radius:28px;margin:auto;display:grid;place-items:center;
+background:linear-gradient(135deg,var(--blue),var(--purple));box-shadow:0 0 45px rgba(25,184,255,.25);
+font-weight:900;font-size:25px}
+h1{font-size:32px;margin-top:16px;letter-spacing:-1px}
+.tag{color:var(--muted);margin-top:8px}
+.hero{margin:20px 0 34px;padding:28px;border:1px solid var(--line);border-radius:24px;
+background:linear-gradient(135deg,rgba(17,24,39,.96),rgba(14,19,32,.8));position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:180px;height:180px;background:rgba(25,184,255,.1);
+filter:blur(35px);right:-50px;top:-70px;border-radius:50%}
+.hero h2{font-size:25px;margin-bottom:8px}.hero p{color:var(--muted);max-width:650px}
+.categories{display:flex;gap:10px;overflow:auto;padding-bottom:10px;margin-bottom:34px}
+.categories button{white-space:nowrap;background:var(--panel);border:1px solid var(--line);color:var(--text);
+padding:11px 15px;border-radius:999px;cursor:pointer}.categories button.active,
+.categories button:hover{border-color:var(--blue);box-shadow:0 0 18px rgba(25,184,255,.12)}
+section{margin:34px 0 42px}.section-title{display:flex;justify-content:space-between;align-items:end;margin-bottom:16px}
+.section-title h2{font-size:21px}.section-title span{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:rgba(14,19,32,.94);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+transition:.2s;display:flex;flex-direction:column}.card:hover{transform:translateY(-3px);border-color:#315173}
+.thumb{aspect-ratio:1/1;background:linear-gradient(135deg,#121a2a,#0a0f19);display:grid;place-items:center;
+font-size:54px}.content{padding:15px}.badge{display:inline-block;font-size:11px;padding:5px 8px;border-radius:7px;
+background:rgba(25,184,255,.1);color:#6ed4ff;margin-bottom:9px}.name{font-weight:700;line-height:1.3;min-height:42px}
+.price{font-size:20px;font-weight:900;margin:10px 0}.old{font-size:12px;color:#707b91;text-decoration:line-through;margin-left:5px}
+.buy{display:block;text-align:center;padding:11px;border-radius:11px;background:linear-gradient(90deg,var(--blue),#3b82f6);
+color:#03111a;font-weight:900;font-size:14px}
+.notice{color:var(--muted);font-size:12px;margin-top:20px;line-height:1.5}
+footer{border-top:1px solid var(--line);padding:25px 0 40px;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){header{padding-top:28px}.hero{padding:22px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.content{padding:12px}.name{font-size:14px}.price{font-size:17px}.thumb{font-size:42px}}
+</style>
+</head>
+<body>
+<header class="container">
+  <div class="logo">GN_</div>
+  <h1>gamesnew_</h1>
+  <p class="tag">Achadinhos gamers, tecnologia e ofertas que valem a pena.</p>
+</header>
+
+<main class="container">
+  <div class="hero">
+    <h2>🔥 Ofertas que encontramos</h2>
+    <p>Produtos selecionados para seu setup, PC e dia a dia. Clique em comprar para abrir o produto na Shopee.</p>
+  </div>
+
+  <nav class="categories" aria-label="Categorias">
+    <button class="active" data-filter="todos">🔥 Todos</button>
+    <button data-filter="gamer">🎮 Gamer</button>
+    <button data-filter="setup">💻 Setup</button>
+    <button data-filter="tech">📱 Tech</button>
+    <button data-filter="50">💰 Até R$50</button>
+  </nav>
+
+  <section>
+    <div class="section-title"><h2>🔥 Destaques</h2><span>Atualize com seus links</span></div>
+    <div class="grid" id="products"></div>
+    <p class="notice">Os links dos produtos devem ser substituídos pelos seus próprios links de afiliado. Preços e disponibilidade podem mudar na Shopee.</p>
+  </section>
+</main>
+
+<footer>© 2026 gamesnew_ • Achadinhos e ofertas</footer>
+
+<script>
+const products = [
+  {cat:"gamer", price:49.90, icon:"🖱️", name:"Mouse Gamer em oferta", badge:"ACHADINHO", link:"SEU_LINK_AQUI"},
+  {cat:"gamer", price:79.90, icon:"🎧", name:"Headset Gamer", badge:"GAMER", link:"SEU_LINK_AQUI"},
+  {cat:"gamer", price:89.90, icon:"⌨️", name:"Teclado Gamer", badge:"GAMER", link:"SEU_LINK_AQUI"},
+  {cat:"setup", price:29.90, icon:"💡", name:"Luz LED para Setup", badge:"SETUP", link:"SEU_LINK_AQUI"},
+  {cat:"setup", price:39.90, icon:"📱", name:"Suporte de Mesa", badge:"SETUP", link:"SEU_LINK_AQUI"},
+  {cat:"setup", price:24.90, icon:"🖱️", name:"Mousepad para Setup", badge:"SETUP", link:"SEU_LINK_AQUI"},
+  {cat:"tech", price:35.90, icon:"🔌", name:"Hub USB", badge:"TECH", link:"SEU_LINK_AQUI"},
+  {cat:"tech", price:45.90, icon:"🔋", name:"Carregador rápido", badge:"TECH", link:"SEU_LINK_AQUI"}
+];
+
+const grid=document.getElementById("products");
+const buttons=document.querySelectorAll(".categories button");
+
+function money(v){return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"})}
+function render(filter="todos"){
+  grid.innerHTML="";
+  products.filter(p=>filter==="todos" || (filter==="50"?p.price<=50:p.cat===filter))
+  .forEach(p=>{
+    grid.innerHTML += `<article class="card">
+      <div class="thumb">${p.icon}</div>
+      <div class="content">
+        <span class="badge">${p.badge}</span>
+        <div class="name">${p.name}</div>
+        <div class="price">${money(p.price)}</div>
+        <a class="buy" href="${p.link}" target="_blank" rel="noopener noreferrer">VER NA SHOPEE →</a>
+      </div>
+    </article>`;
+  });
+}
+buttons.forEach(btn=>btn.addEventListener("click",()=>{
+  buttons.forEach(b=>b.classList.remove("active"));btn.classList.add("active");render(btn.dataset.filter);
+}));
+render();
+</script>
+</body>
+</html>
